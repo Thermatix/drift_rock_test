@@ -27,8 +27,8 @@ class App < Sinatra::Base
   end
 
   post '/search'do
-    check_for_git_api_key
-    @res = GH_Client.new(session['username'],session['password']).get_data(params['username'])
+    # check_for_git_api_key
+    @langs = GH_Client.new(session['username'],session['password']).get_languages(params['username'])
     erb :search
   end
 
