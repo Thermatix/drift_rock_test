@@ -15,7 +15,7 @@ class App < Sinatra::Base
     if  GH_Client.new(params['username'],params['password']).test_login
       session['username'] = params['username']
       session['password'] = params['password']
-      redirect to('/search'),303
+      redirect to('/'),303
     else
       redirect to('/login'),303
 
