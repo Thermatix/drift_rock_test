@@ -28,7 +28,10 @@ class App < Sinatra::Base
 
   post '/search'do
     # check_for_git_api_key
-    @langs = GH_Client.new(session['username'],session['password']).get_languages(params['username'])
+    langs = GH_Client.new(session['username'],session['password']).get_languages(params['username'])
+    total = langs.inject(0) {|t,(_,v)| t + v.to_f}
+    @totals =
+      langs.inject({}) {|tos,(k,v)| tos[k] = ((v.to_f / total) * 100).round(2);tos}
     erb :search
   end
 

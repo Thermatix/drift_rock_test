@@ -10,26 +10,26 @@
 </form>
   <a href='/logout'>logout</a>
 </div>
-<% if @langs %>
+<% if @totals %>
   <div>
     <table>
       <thead>
         <tr>
           <td>
-            "Language"
+            <h3>Language<h3>
           </td>
           <td>
-            "Percent"
+            <h3>Percent<h3>
           </td>
         </tr>
       </thead>
-      <% @langs.each do |lang,ammount| %>
+      <% @totals.each do |lang,ammount| %>
         <tr>
             <td>
               <%= lang %>
             </td>
             <td>
-              <%= ammount %>
+              <%= ammount %> %
             </td>
         </tr>
       <% end %>
